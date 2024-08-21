@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1031118743134",
+    "firebase_url": "https://repark-97458-default-rtdb.firebaseio.com",
+    "project_id": "repark-97458",
+    "storage_bucket": "repark-97458.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031118743134:android:1a0db7e775ea414cca76cf",
+        "android_client_info": {
+          "package_name": "com.nanreg3.repark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031118743134-3kas1tph7eg461k6ldd7vavv7of1cn0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHGqz9cmylsMi_r-6pDdD3oSrElBkqKrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031118743134-3kas1tph7eg461k6ldd7vavv7of1cn0a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1031118743134-cgt12orpplhq3ag5gmh3gbecpkukss27.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nanreg3.repark"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
