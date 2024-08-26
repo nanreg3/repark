@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:repark/pages/avisos_page.dart';
+import 'package:repark/pages/list_avulsos_impressos.dart';
 import 'package:repark/pages/list_avulsos_page.dart';
 import 'package:repark/pages/list_clientes_page.dart';
 import 'package:repark/pages/config_page.dart';
@@ -32,6 +33,15 @@ class HomeScreen extends StatelessWidget {
             centerTitle: true,
           ),
           body: const AvulsoPage(),
+          drawer: CustomDrawer(pageController),
+        ),
+        Scaffold(
+          appBar: AppBar(
+            backgroundColor: const Color.fromARGB(255, 17, 224, 224),
+            title: const Text("Histórico"),
+            centerTitle: true,
+          ),
+          body: const AvulsoImpressoPage(),
           drawer: CustomDrawer(pageController),
         ),
         Scaffold(

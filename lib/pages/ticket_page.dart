@@ -127,24 +127,31 @@ class _TicketPageState extends State<TicketPage> {
                     ),
                     const Divider(thickness: 2),
                     Text(
-                      'Valor hora: R\$${config?.valorHora.toStringAsFixed(2).toString().replaceAll('.', ',')}',
+                      'Valor da diária: R\$${config?.valorDia.toStringAsFixed(2).toString().replaceAll('.', ',')}',
                       style: const TextStyle(
                         fontSize: 15.5,
                       ),
                     ),
-                    Text(
-                      'Valor hora adicional: R\$${config?.valorHoraAdd.toStringAsFixed(2).toString().replaceAll('.', ',')}',
-                      style: const TextStyle(
-                        fontSize: 15.5,
-                      ),
-                    ),
-                    if (config?.valorMeiaHora != 0)
-                      Text(
-                        'Valor meia hora: R\$${config?.valorMeiaHora.toStringAsFixed(2).toString().replaceAll('.', ',')}',
-                        style: const TextStyle(
-                          fontSize: 15.5,
-                        ),
-                      ),
+                    // const Divider(thickness: 2),
+                    // Text(
+                    //   'Valor hora: R\$${config?.valorHora.toStringAsFixed(2).toString().replaceAll('.', ',')}',
+                    //   style: const TextStyle(
+                    //     fontSize: 15.5,
+                    //   ),
+                    // ),
+                    // Text(
+                    //   'Valor hora adicional: R\$${config?.valorHoraAdd.toStringAsFixed(2).toString().replaceAll('.', ',')}',
+                    //   style: const TextStyle(
+                    //     fontSize: 15.5,
+                    //   ),
+                    // ),
+                    // if (config?.valorMeiaHora != 0)
+                    //   Text(
+                    //     'Valor meia hora: R\$${config?.valorMeiaHora.toStringAsFixed(2).toString().replaceAll('.', ',')}',
+                    //     style: const TextStyle(
+                    //       fontSize: 15.5,
+                    //     ),
+                    //   ),
                     const Divider(thickness: 2),
                     FittedBox(
                       fit: BoxFit.cover,
@@ -156,7 +163,6 @@ class _TicketPageState extends State<TicketPage> {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          const SizedBox(width: 16),
                           Text(
                             r'' + widget.ticket.valor,
                             style: const TextStyle(
@@ -166,7 +172,7 @@ class _TicketPageState extends State<TicketPage> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 22),
                     Center(
                       child: Text(
                         config?.rodape ?? '',

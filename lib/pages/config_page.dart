@@ -10,9 +10,11 @@ class ConfigPage extends StatefulWidget {
 }
 
 class _ConfigPageState extends State<ConfigPage> {
+  late TextEditingController valorDia = TextEditingController();
   late TextEditingController valorHora = TextEditingController();
   late TextEditingController valorHoraAdd = TextEditingController();
   late TextEditingController valorMeiaHora = TextEditingController();
+  late TextEditingController qtdDiasAviso = TextEditingController();
   late TextEditingController msg = TextEditingController();
   late TextEditingController nomeLoja = TextEditingController();
   late TextEditingController rodape = TextEditingController();
@@ -22,6 +24,9 @@ class _ConfigPageState extends State<ConfigPage> {
 
   void salvarConfig() {
     final config = {
+      "valorDia": valorDia.text != ''
+          ? double.tryParse(valorDia.text.replaceAll(',', '.'))
+          : 0,
       "valorHora": valorHora.text != ''
           ? double.tryParse(valorHora.text.replaceAll(',', '.'))
           : 0,
@@ -31,6 +36,8 @@ class _ConfigPageState extends State<ConfigPage> {
       "valorMeiaHora": valorMeiaHora.text != ''
           ? double.tryParse(valorMeiaHora.text.replaceAll(',', '.'))
           : 0,
+      "qtdDiasAviso":
+          qtdDiasAviso.text != '' ? double.tryParse(qtdDiasAviso.text) : 0,
       "msg": msg.text,
       "nomeLoja": nomeLoja.text,
       "rodape": rodape.text,
@@ -64,7 +71,10 @@ class _ConfigPageState extends State<ConfigPage> {
 
     final docSnap = await ref.get();
     final config = docSnap.data();
-    if (config!.valorHora != null) {
+    if (config!.valorDia != null) {
+      valorDia.text = config.valorDia.toStringAsFixed(2).replaceAll('.', ',');
+    }
+    if (config.valorHora != null) {
       valorHora.text = config.valorHora.toStringAsFixed(2).replaceAll('.', ',');
     }
     if (config.valorHoraAdd != null) {
@@ -75,6 +85,9 @@ class _ConfigPageState extends State<ConfigPage> {
       valorMeiaHora.text =
           config.valorMeiaHora.toStringAsFixed(2).replaceAll('.', ',');
     }
+    // if (config.qtdDiasAviso != null) {
+    //   qtdDiasAviso.text = config.qtdDiasAviso;
+    // }
     msg.text = config.msg;
     nomeLoja.text = config.nomeLoja;
     rodape.text = config.rodape;
@@ -103,9 +116,9 @@ class _ConfigPageState extends State<ConfigPage> {
                         children: [
                           Expanded(
                             child: TextField(
-                              controller: valorHora,
+                              controller: valorDia,
                               decoration: const InputDecoration(
-                                labelText: "Valor da Hora:",
+                                labelText: "Valor da diária:",
                                 border: OutlineInputBorder(),
                                 prefixText: 'R\$: ',
                               ),
@@ -114,46 +127,69 @@ class _ConfigPageState extends State<ConfigPage> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              controller: valorHoraAdd,
-                              decoration: const InputDecoration(
-                                labelText: "Valor Hora adicional:",
-                                border: OutlineInputBorder(),
-                                prefixText: 'R\$: ',
-                              ),
-                              keyboardType: TextInputType.number,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              controller: valorMeiaHora,
-                              decoration: const InputDecoration(
-                                labelText: "Valor meia Hora:",
-                                border: OutlineInputBorder(),
-                                prefixText: 'R\$: ',
-                              ),
-                              keyboardType: TextInputType.number,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Text(
-                        'Obs.: Deixe o valor 0 (zero) caso não queira calcular meia hora.',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 12,
-                        ),
-                      ),
-                      const SizedBox(height: 20),
+                      // const Text(
+                      //   'Obs.: Deixe o valor 0 (zero) caso não queira calcular dia.',
+                      //   style: TextStyle(
+                      //     color: Colors.grey,
+                      //     fontSize: 12,
+                      //   ),
+                      // ),
+                      // const SizedBox(height: 20),
+                      // Row(
+                      //   children: [
+                      //     Expanded(
+                      //       child: TextField(
+                      //         controller: valorHora,
+                      //         decoration: const InputDecoration(
+                      //           labelText: "Valor da Hora:",
+                      //           border: OutlineInputBorder(),
+                      //           prefixText: 'R\$: ',
+                      //         ),
+                      //         keyboardType: TextInputType.number,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                      // const SizedBox(height: 20),
+                      // Row(
+                      //   children: [
+                      //     Expanded(
+                      //       child: TextField(
+                      //         controller: valorHoraAdd,
+                      //         decoration: const InputDecoration(
+                      //           labelText: "Valor Hora adicional:",
+                      //           border: OutlineInputBorder(),
+                      //           prefixText: 'R\$: ',
+                      //         ),
+                      //         keyboardType: TextInputType.number,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                      // const SizedBox(height: 20),
+                      // Row(
+                      //   children: [
+                      //     Expanded(
+                      //       child: TextField(
+                      //         controller: valorMeiaHora,
+                      //         decoration: const InputDecoration(
+                      //           labelText: "Valor meia Hora:",
+                      //           border: OutlineInputBorder(),
+                      //           prefixText: 'R\$: ',
+                      //         ),
+                      //         keyboardType: TextInputType.number,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                      // const Text(
+                      //   'Obs.: Deixe o valor 0 (zero) caso não queira calcular meia hora.',
+                      //   style: TextStyle(
+                      //     color: Colors.grey,
+                      //     fontSize: 12,
+                      //   ),
+                      // ),
+                      const SizedBox(height: 40),
                       Row(
                         children: [
                           Expanded(

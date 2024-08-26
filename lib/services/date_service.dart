@@ -74,10 +74,10 @@ DateTime dateStringToDateTime(String value) {
   return DateTime(ano, mes, dia);
 }
 
-//"20241231235959" -> "23:59"
+//"20241231235959" -> "31/12 23:59"
 String formatStringEntrada(String string) {
   final String formattedDate =
-      "${string.substring(8, 10)}:${string.substring(10, 12)}";
+      "${string.substring(6, 8)}/${string.substring(4, 6)} ${string.substring(8, 10)}:${string.substring(10, 12)}";
   return formattedDate;
 }
 

@@ -48,9 +48,10 @@ class CustomDrawer extends StatelessWidget {
               const Divider(),
               DrawerTile(Icons.car_crash, "Avisos", pageController, 0),
               DrawerTile(Icons.timer, "Avulsos", pageController, 1),
+              DrawerTile(Icons.print, "Histórico", pageController, 2),
               DrawerTile(
-                  Icons.people_alt_rounded, "Clientes", pageController, 2),
-              DrawerTile(Icons.settings, "Configurações", pageController, 3),
+                  Icons.people_alt_rounded, "Clientes", pageController, 3),
+              DrawerTile(Icons.settings, "Configurações", pageController, 4),
             ],
           )
         ],
