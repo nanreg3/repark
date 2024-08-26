@@ -266,7 +266,7 @@ class _CadastroPageState extends State<CadastroAvulsoPage> {
       ),
       persistentFooterButtons: [
         if (widget.avulso != null)
-          if (widget.avulso!.id == '')
+          if (widget.avulso!.saida == '')
             ElevatedButton(
               onPressed: () {
                 showDialog(
@@ -348,7 +348,7 @@ class _CadastroPageState extends State<CadastroAvulsoPage> {
               ),
             ),
         const SizedBox(width: 10),
-        if (widget.avulso!.id == '')
+        if (widget.avulso!.saida == '')
           ElevatedButton(
             onPressed: () {
               salvarAvulso();
