@@ -266,103 +266,101 @@ class _CadastroPageState extends State<CadastroAvulsoPage> {
       ),
       persistentFooterButtons: [
         if (widget.avulso != null)
-          if (widget.avulso!.saida == '')
-            ElevatedButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) => Dialog(
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              IconButton(
-                                  onPressed: () => Navigator.pop(context),
-                                  icon: const Icon(Icons.close)),
-                            ],
-                          ),
-                          Text(
-                            widget.avulso!.modelo,
-                            style: const TextStyle(
-                              fontSize: 17,
-                            ),
-                          ),
-                          Text(widget.avulso!.placa),
-                          const SizedBox(height: 20),
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              if (widget.avulso!.id == '')
-                                ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                    removerAvulso();
-                                  },
-                                  child: const Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text('Remover'),
-                                      SizedBox(width: 6),
-                                      Icon(Icons.person_remove,
-                                          color: Colors.red),
-                                    ],
-                                  ),
-                                ),
-                              const SizedBox(width: 20),
-                              if (widget.avulso!.id == '')
-                                ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: const Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text('Voltar'),
-                                      SizedBox(width: 6),
-                                      Icon(Icons.arrow_back,
-                                          color:
-                                              Color.fromARGB(255, 10, 189, 16)),
-                                    ],
-                                  ),
-                                ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
-                elevation: 3,
-                padding: const EdgeInsets.symmetric(vertical: 25),
-              ),
-              child: const Icon(
-                Icons.person_remove,
-                color: Colors.white,
-              ),
-            ),
-        const SizedBox(width: 10),
-        if (widget.avulso?.saida == '')
           ElevatedButton(
             onPressed: () {
-              salvarAvulso();
+              showDialog(
+                context: context,
+                builder: (BuildContext context) => Dialog(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                                onPressed: () => Navigator.pop(context),
+                                icon: const Icon(Icons.close)),
+                          ],
+                        ),
+                        Text(
+                          widget.avulso!.modelo,
+                          style: const TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
+                        Text(widget.avulso!.placa),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            if (widget.avulso!.id == '')
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  removerAvulso();
+                                },
+                                child: const Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text('Remover'),
+                                    SizedBox(width: 6),
+                                    Icon(Icons.person_remove,
+                                        color: Colors.red),
+                                  ],
+                                ),
+                              ),
+                            const SizedBox(width: 20),
+                            if (widget.avulso!.id == '')
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text('Voltar'),
+                                    SizedBox(width: 6),
+                                    Icon(Icons.arrow_back,
+                                        color:
+                                            Color.fromARGB(255, 10, 189, 16)),
+                                  ],
+                                ),
+                              ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.red,
               elevation: 3,
               padding: const EdgeInsets.symmetric(vertical: 25),
             ),
-            child: Icon(
-              widget.avulso == null ? Icons.add_circle : Icons.check,
+            child: const Icon(
+              Icons.person_remove,
               color: Colors.white,
             ),
           ),
+        const SizedBox(width: 10),
+        ElevatedButton(
+          onPressed: () {
+            salvarAvulso();
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            elevation: 3,
+            padding: const EdgeInsets.symmetric(vertical: 25),
+          ),
+          child: Icon(
+            widget.avulso == null ? Icons.add_circle : Icons.check,
+            color: Colors.white,
+          ),
+        ),
         if (widget.avulso != null) const SizedBox(width: 10),
         if (widget.avulso != null)
           ElevatedButton(
