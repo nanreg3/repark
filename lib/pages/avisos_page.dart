@@ -162,17 +162,14 @@ class _AvisoPageState extends State<AvisoPage> {
                               return ListTile(
                                 title: Text(
                                   cliente.nome,
-                                  style: const TextStyle(fontSize: 20),
+                                  style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500),
                                 ),
                                 subtitle: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Text(
-                                      cliente.modelo,
-                                      style: const TextStyle(
-                                        fontSize: 17,
-                                      ),
-                                    ),
+                                    Text(cliente.modelo),
                                     const SizedBox(width: 15),
                                     Text(
                                       '${diasParaVencimento(cliente.vencimento).toString()} dias para o venc...',

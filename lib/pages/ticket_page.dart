@@ -108,7 +108,7 @@ class _TicketPageState extends State<TicketPage> {
                         TableRow(
                           children: [
                             const Text('Entrada'),
-                            Text(r'' + widget.ticket.entrada),
+                            Text(r'' + widget.ticket.entrada.substring(6)),
                           ],
                         ),
                         TableRow(

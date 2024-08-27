@@ -348,7 +348,7 @@ class _CadastroPageState extends State<CadastroAvulsoPage> {
               ),
             ),
         const SizedBox(width: 10),
-        if (widget.avulso!.saida == '')
+        if (widget.avulso?.saida == '')
           ElevatedButton(
             onPressed: () {
               salvarAvulso();
